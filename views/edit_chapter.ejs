@@ -1,0 +1,49 @@
+<div class="row">
+    <ol class="breadcrumb">
+        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+        <li class="active">Trang chủ quản trị </li>
+        <li class=""> / Article</li>
+        <li class=""> / Edit Chapter</li>
+    </ol>
+</div>
+
+<div class="row page-header">
+    <div class="col-sm-12">
+        <h1>Thêm Chapter</h1> 
+    </div>
+</div>
+<div class="row add_user">
+    <div class="col-6">
+        <%if(message.length > 0) {%>
+            <%if(message === 'empty'){%>
+                <div class="alert alert-danger">Không được để trống thông tin !</div>
+            <%}else if(message === 'wrong'){%>	
+                <div class="alert alert-danger">Chapter đã tồn tại !</div>
+            <%}else if(message === 'accept'){%>	
+                <div class="alert alert-success">Edit chapter thành công !</div>
+            <%}%>
+        <%}%>
+        <form method="POST" action="/admin/edit_chapter/<%= cur_chap[0].ar_ID%>/<%= cur_chap[0].chap_ID%>" role="form" enctype="multipart/form-data">
+            <fieldset>
+                <div class="form-group">
+                    <label>Tên chap</label>
+                    <input class="form-control" placeholder="Tên chap" name="name" type="text" autofocus value="<%= cur_chap[0].chap_name%>">
+                </div>
+                <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Save</button>
+            </fieldset>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="preview-images"></div>
+        </div>
+    </div>
+      
+</div>
+<style>
+    div.preview-images>img {
+        width: 30%;
+    }
+</style>
+
+

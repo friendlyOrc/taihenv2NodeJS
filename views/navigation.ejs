@@ -1,0 +1,61 @@
+<div class="nav__wrapper">
+    <div class="container-fluid nav">
+        <div class="row d-flex justify-content-between">
+            <div class="col-4">
+                <a href="/" class="nav__logo">taihen</a>
+            </div>
+            <div class="col-4">
+                <ul class="nav__menu">
+                    <% if(page === 'list' && cur_tag && cur_tag[0].cat_ID == 0){%>
+                        <li class="nav__menu__item nav--active"><a href="/article_list/0">Danh sách</a></li>
+                    <%}else{%>
+                        <li class="nav__menu__item"><a href="/article_list/0">Danh sách</a></li>
+                    <%}%>
+                    <li class="nav__menu__item" id="cate">
+                        Thể loại
+                    </li>
+                    <% if(page === 'list' && cur_tag && cur_tag[0].cat_ID === 'complete'){%>
+                        <li class="nav__menu__item nav--active"><a href="/article_list/complete">Hoàn tất</a></li>
+                    <%}else{%>
+                        <li class="nav__menu__item"><a href="/article_list/complete">Hoàn tất</a></li>
+                    <%}%>
+                    <% if(page === 'list' && cur_tag && cur_tag[0].cat_ID === 'hot'){%>
+                        <li class="nav__menu__item nav--active"><a href="/article_list/hot">HOT</a></li>
+                    <%}else{%>
+                        <li class="nav__menu__item"><a href="/article_list/hot">HOT</a></li>
+                    <%}%>
+                    
+                </ul>
+            </div>
+            <div class="col-3">
+                <form action="/search" method="POST" class="nav__search d-flex justify-content-between">
+                    <input type="text" class="nav__search__input" placeholder="Tìm kiếm" name="search">
+                    <button class="nav__search__button" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="nav__hambutton">
+                <button class="nav__hambutton__button"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid category cate--disable">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="category__list">
+                        <% let row = Math.round(sess.category.length/8)%>
+                        <% for(let j = 0; j < 8; j++){%>
+                            <ul class="category__list__col">
+                                <% for(let i = row*j; i < sess.category.length - row*(8 - j - 1); i++){%>
+                                    <li class="category__list__col__item" title="<%= sess.category[i].cat_des%>"><a href="/article_list/<%= sess.category[i].cat_ID%>"><%= sess.category[i].cat_name%></a></li>
+                                <%}%>
+                            </ul>
+                        <%}%>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="row">
+    <ol class="breadcrumb">
+        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+        <li class="active">Trang chủ quản trị </li>
+        <li class=""> / User</li>
+        <li class=""> / Thêm User</li>
+    </ol>
+</div>
+
+<div class="row page-header">
+    <div class="col-sm-12">
+        <h1>Thêm User</h1> 
+    </div>
+</div>
+<div class="row add_user">
+    <div class="col-6">
+        <%if(message.length > 0) {%>
+            <%if(message === 'empty'){%>
+                <div class="alert alert-danger">Không được để trống thông tin !</div>
+            <%}else if(message === 'wrong'){%>	
+                <div class="alert alert-danger">Email đã tồn tại !</div>
+            <%}else if(message === 'pass'){%>	
+                <div class="alert alert-danger">Mật khẩu không khớp !</div>
+            <%}else if(message === 'accept'){%>	
+                <div class="alert alert-success">Thêm user thành công !</div>
+            <%}%>
+        <%}%>
+        <form role="form" method="POST" action="/admin/add_user">
+            <fieldset>
+                <div class="form-group">
+                    <input class="form-control" placeholder="E-mail" name="mail" type="email" autofocus>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Mật khẩu" name="pass" type="password" value="">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Xác nhận mật khẩu" name="repass" type="password" value="">
+                </div>
+                <button type="submit" class="btn btn-success">Thêm user</button>
+            </fieldset>
+        </form>
+    </div>
+    
+      
+</div>

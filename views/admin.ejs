@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title%></title>
+        
+        <% include head%>
+    </head>
+    
+<body>
+    <nav class="navbar navbar-fixed-top bg-dark" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><span>Taihen</span>Administration</a>
+                    <ul class="user-menu">
+                        <li class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Admin <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/admin/logout"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                                
+            </div>
+        </nav>
+	<div class="row">
+        <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+            <ul class="nav menu">
+                <% if(page === 'sub_admin') {%>
+                    <li class="active">
+                <%}else{%>
+                    <li>
+                <%}%>
+                    <a href="/admin">
+                        <svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> 
+                        Dashboard
+                    </a>
+                </li>
+                <% if(page === 'user' || page === 'add_user' || page === 'edit_user') {%>
+                    <li class="active">
+                <%}else{%>
+                    <li>
+                <%}%>
+                    <a href="/admin/user"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg>
+                        Quản lý thành viên
+                    </a>
+                </li>
+                <% if(page === 'category' || page === 'add_category' || page === 'edit_category') {%>
+                    <li class="active">
+                <%}else{%>
+                    <li>
+                <%}%>
+                    <a href="/admin/category"><svg class="glyph stroked tag"><use xlink:href="#stroked-tag"/></svg>
+                        Quản lý category
+                    </a>
+                </li>
+                <% if(page === 'articles' || page === 'add_article' || page === 'edit_article') {%>
+                    <li class="active">
+                <%}else{%>
+                    <li>
+                <%}%>
+                    <a href="/admin/articles"><svg class="glyph stroked open folder"><use xlink:href="#stroked-open-folder"/></svg>
+                        Quản lý article
+                    </a>
+                </li>
+                <% if(page === 'chapters' || page === 'add_chapter' || page === 'edit_chapter') {%>
+                    <li class="active">
+                <%}else{%>
+                    <li>
+                <%}%>
+                    <a href="/admin/articles"><svg class="glyph stroked app-window-with-content"><use xlink:href="#stroked-app-window-with-content"></use></svg>
+                        Quản lý Chapter
+                    </a>
+                </li>
+                <!-- <li><a href="ads.html"><svg class="glyph stroked chain"><use xlink:href="#stroked-chain"/></svg> Quản lý quảng cáo</a></li>
+                <li><a href="setting.html"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"/></svg> Cấu hình</a></li> -->
+            </ul>
+        </div>
+            
+        <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">	
+            <%if(page === 'sub_admin'){%>	
+                <% include sub_admin%>
+            <%}else if(page === 'user'){%>	
+                <% include user%>
+            <%}else if(page === 'add_user'){%>	
+                <% include add_user%>
+            <%}else if(page === 'category'){%>	
+                <% include admin_category%>
+            <%}else if(page === 'add_category'){%>	
+                <% include add_category%>
+            <%}else if(page === 'articles'){%>	
+                <% include admin_articles%>
+            <%}else if(page === 'add_article'){%>	
+                <% include add_article%>
+            <%}else if(page === 'chapters'){%>	
+                <% include admin_chapter%>
+            <%}else if(page === 'add_chapter'){%>	
+                <% include add_chapter%>
+            <%}else if(page === 'edit_user'){%>	
+                <% include edit_user%>
+            <%}else if(page === 'edit_category'){%>	
+                <% include edit_category%>
+            <%}else if(page === 'edit_article'){%>	
+                <% include edit_article%>
+            <%}else if(page === 'edit_chapter'){%>	
+                <% include edit_chapter%>
+            <%}%>
+        </div>	<!--/.main-->
+    </div>	
+	
+
+    <% include js%>
+</body>
+
+</html>

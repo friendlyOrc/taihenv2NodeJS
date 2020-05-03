@@ -1,0 +1,64 @@
+<div class="row">
+    <ol class="breadcrumb">
+        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+        <li class="active">Trang chủ quản trị </li>
+        <li class=""> > Category</li>
+    </ol>
+</div>
+
+<div class="row page-header">
+    <div class="col-sm-12">
+        <h1>Category</h1> 
+        <a href="/admin/add_category"><button class="btn btn-success btn-md">Thêm Category</button></a>
+    </div>
+</div><!--/.row-->
+
+<div class="row user">
+    <table class="table table-striped table-bordered user__table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Mô tả</th>
+            <th scope="col">Sửa</th>
+            <th scope="col">Xóa cate</th>
+          </tr>
+        </thead>
+        <tbody>
+            <%for(let i = pagination.start; i < pagination.end; i++){%>
+                <tr>
+                    <th scope="row"><%= sess.category[i].cat_ID%></th>
+                    <td><%= sess.category[i].cat_name%></td>
+                    <td><%= sess.category[i].cat_des%></td>
+                    <td><button class="btn btn-success btn-sm" onclick="window.location.replace('/admin/edit_category/<%= sess.category[i].cat_ID%>')"><i class="fas fa-pen"></i></button></td>
+                    <td><button class="btn btn-danger btn-sm" onclick="confirmDelete('<%= sess.category[i].cat_ID%>')"><i class="fas fa-times"></i></button></td>
+                </tr>
+            <%}%>
+            
+        </tbody>
+      </table>
+      <div class="pagination">
+        <a href="/admin/category?page=0">First</a>
+        <a href="/admin/category?page=<%= pagination.previous%>">&laquo;</a>
+        <% for(let i = (pagination.current - 3 > 0)?pagination.current - 3: 0; i < pagination.lastItem; i++) {%>
+            <%if(pagination.current === i){%>
+                <a href="/admin/category?page=<%= i%>" class="active"><%= i + 1%></a>
+            <%} else {%>
+                <a href="/admin/category?page=<%= i%>"><%= i + 1%></a>
+            <%}%>
+        <%}%>
+        <a href="/admin/category?page=<%= pagination.next%>">&raquo;</a>
+        <a href="/admin/category?page=<%= pagination.lastPage - 1%>">Last</a>
+    </div>
+      
+</div><!--/.row-->
+<script>
+    function confirmDelete(i){
+        const rs = confirm('Bạn có muốn xóa category này?');
+        if(rs){
+            window.location.replace("/admin/delete_category?id=" + i);
+        }else{
+            return;
+        }
+    }
+</script>

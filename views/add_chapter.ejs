@@ -1,0 +1,55 @@
+<div class="row">
+    <ol class="breadcrumb">
+        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+        <li class="active">Trang chủ quản trị </li>
+        <li class=""> / Article</li>
+        <li class=""> / Thêm Chapter</li>
+    </ol>
+</div>
+
+<div class="row page-header">
+    <div class="col-sm-12">
+        <h1>Thêm Chapter</h1> 
+    </div>
+</div>
+<div class="row add_user">
+    <div class="col-6">
+        <%if(message.length > 0) {%>
+            <%if(message === 'empty'){%>
+                <div class="alert alert-danger">Không được để trống thông tin !</div>
+            <%}else if(message === 'wrong'){%>	
+                <div class="alert alert-danger">Chapter đã tồn tại !</div>
+            <%}else if(message === 'invalid'){%>	
+                <div class="alert alert-danger">Ảnh không hợp lệ (JEPG, PNG) !</div>
+            <%}else if(message === 'accept'){%>	
+                <div class="alert alert-success">Thêm chapter thành công !</div>
+            <%}%>
+        <%}%>
+        <form method="POST" action="/admin/add_chapter/<%= ar_id%>" role="form" enctype="multipart/form-data">
+            <fieldset>
+                <div class="form-group">
+                    <label>Tên chap</label>
+                    <input class="form-control" placeholder="Tên chap" name="name" type="text" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="example-input-file">Load pages</label>
+                    <input type="file" name="many-files" multiple id="input-many-files" class="form-control-file border">
+                </div>
+                <button type="submit" class="btn btn-success">Thêm chapter</button>
+            </fieldset>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="preview-images"></div>
+        </div>
+    </div>
+      
+</div>
+<style>
+    div.preview-images>img {
+        width: 30%;
+    }
+</style>
+
+
