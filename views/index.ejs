@@ -390,14 +390,27 @@
                 behavior: 'smooth'
                 });
             }
-            // function toggleCate(){
-            //     document.getElementById("cate").classList.add("nav--active");
-            //     // document.getElementsByClassName("category").toggleClass('cate--active');
-            // }
+            function openNavFull (){
+                $("#full").toggleClass("nav--full--active");
+            }
+            function openSearchFull(){
+                $(".nav__search__mobile").toggleClass("block--active").toggleClass("block--disable");
+            }
             $(function(){
                 $("#cate").click(function(){
                     $(this).toggleClass("nav--active");
                     $(".category").toggleClass("cate--active").toggleClass("cate--disable");
+                })
+            });
+
+            $(function(){
+                $("#cate__mobile").click(function(){
+                    $(".categoryfull").toggleClass("cate--active").toggleClass("cate--disable");
+                })
+            });
+            $(function(){
+                $("#cate__backbtn").click(function(){
+                    $(".categoryfull").toggleClass("cate--active").toggleClass("cate--disable");
                 })
             });
            

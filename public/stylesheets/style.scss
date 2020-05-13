@@ -38,6 +38,12 @@ $block_fsize: 1.823vw;
 .cmt_footer__wrapper{
     background: transparent linear-gradient(to bottom, #642025 0%, #0D0A12 100%) 0% 0% no-repeat padding-box;
 }
+.block--active{
+    display: block;
+}
+.block--disable{
+    display: none;
+}
 // NAVIGATION 
 .social__left, .social__right{
     position: fixed;
@@ -48,6 +54,7 @@ $block_fsize: 1.823vw;
     border-left: 2px solid #fff;
     border-right: 2px solid #fff;
     z-index: 99;
+    display: none;
 }
 .social__left{
     left: 0;
@@ -81,12 +88,12 @@ $block_fsize: 1.823vw;
 }
 .nav{
     color: #fff;
-    padding: 25px 0 0 0 !important;
     overflow: hidden;
-    background-color: rgba($color: #000000, $alpha: 0.25);
-    border-bottom: 1px solid #fff;
+    background-color: rgba($color: #000000, $alpha: 1);
     z-index: 99;
     top: 0;
+    display: flex;
+    justify-content: center;
 
     #cate{
         cursor: pointer;
@@ -97,20 +104,23 @@ $block_fsize: 1.823vw;
     
     .nav__logo {
         font:{
-            size: $logo_fsize;
+            size: 2*$logo_fsize;
             family: 'SSB';
         }
         color: #fff;
-        margin: 0px 30px;
         text-decoration: none;
+        position: fixed;
+        top: 2%;
+        left: 45%;
+        right: 50%;
+        z-index: 100;
     }
     .nav__menu{
         font:{
             size: $nav_fsize;
             family: 'Montserrat', sans-serif;
         }
-        display: flex;
-        height: 100%;
+        display: none;
         .nav__menu__item{
             display: inline-block;
             white-space: nowrap;
@@ -130,6 +140,55 @@ $block_fsize: 1.823vw;
     }
 
     .nav__search{
+        display: none;
+
+        .nav__search__input{
+            display: none;
+        }
+        .nav__search__button{
+            display: none;
+        }
+    }
+
+    .nav__hambutton{
+        display: none;
+    }
+
+    .nav__hambutton__left{
+        display: block;
+        position: relative;
+        margin: 1.5vw 0.5vw;
+        z-index: 10;
+        .nav__hambutton__button{
+            font-size: 14px;
+            cursor: pointer;
+            color: #fff;
+            border: none;
+            background: none;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    .nav__search__right{
+        display: block;
+        margin-top: 2vw;
+        button{
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 12px;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    
+}
+.nav__search__mobile{
+    background-color: #000;
+    padding: 10px;
+    .nav__search__mobile__form{
         white-space: nowrap;
         border: 2px solid #fff;
         margin: -0.5vw 2vw;
@@ -137,7 +196,7 @@ $block_fsize: 1.823vw;
         border-radius: 0.25vw;
         color: #fff;
 
-        .nav__search__input{
+        .nav__search__mobile__input{
             color: #fff;
             border: none;
             background: none;
@@ -149,27 +208,67 @@ $block_fsize: 1.823vw;
                 color: #fff;
             }
         }
-        .nav__search__button{
+        .nav__search__mobile__button{
             cursor: pointer;
             color: #fff;
             border: none;
             background: none;
         }
     }
+}
 
-    .nav__hambutton{
-        margin: 0px 0.5vw;
-        .nav__hambutton__button{
-            font-size: 1.302vw;
-            cursor: pointer;
-            color: #fff;
-            border: none;
-            background: none;
-            &:focus{
-                outline: none;
+
+.nav--full{
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #fff, $alpha: 0.7);
+    justify-content: center;
+    display: flex;
+    display: none;
+    .nav--full__bg{
+        background-image: url("../images/rs/article.png");
+        background-position: center;
+        background-size: cover;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(8px);
+    }
+    .nav--full__menu{
+        text-align: center;
+        margin-top: 40vw;
+        padding: 0 !important;
+        font:{
+            size: 20px;
+            family: 'Montserrat', sans-serif;
+        }
+        .nav--full__menu__item{
+            list-style-type: none;
+            white-space: nowrap;
+            padding: 0px 1.3vw;
+            margin-bottom: 10vw;
+            a {
+                color: #fff;
+                text-decoration: none;
+                text-align: center;
+            }
+            button{
+                cursor: pointer;
+                color: #fff;
+                border: none;
+                background: none;
             }
         }
     }
+}
+.nav--full--active{
+    display: block;
 }
 .cate--active{
     display: block;
@@ -207,13 +306,58 @@ $block_fsize: 1.823vw;
     }
 }
 
+.categoryfull{
+    background: transparent linear-gradient(180deg, #000000 0%, #000000 31%, #000000CC 70%, #00000000 100%) 0% 0% no-repeat padding-box;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+
+    .categoryfull__list{
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10vw;
+        margin-left: 15px;
+
+        .categoryfull__list__col{
+            list-style-type: none;
+            margin-right: 5px;
+            padding: 0 !important;
+            width: 33%;
+            .categoryfull__list__col__item{
+                margin-bottom: 10px;
+                font-size: 12px;
+                white-space: nowrap;
+                a{
+                    color: #fff;
+                    text-decoration: none;
+                }
+                &:hover{
+                    a{
+                        color: tomato;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+    #cate__backbtn{
+        margin-top: 20px;
+        cursor: pointer;
+    }
+}
+
 
 // WEEKLY CHOICE 
 
 @for $i from 1 through 3{
     .wl__#{$i}{
         background:{
-            image:  linear-gradient(to top, rgba($color: #000000, $alpha: 1), rgba($color: #000000, $alpha: 0), rgba($color: #000000, $alpha: 0)), url('../img/wlbg'+$i+'.png');
+            image:  linear-gradient(to top, rgba($color: #000000, $alpha: 1), rgba($color: #000000, $alpha: 0), rgba($color: #000000, $alpha: 0)), url('../images/rs/wlbg'+$i+'.png');
             repeat: no-repeat;
             position: center top;
             size: cover;
@@ -377,7 +521,7 @@ $block_fsize: 1.823vw;
     }
     .topview__slider{
         display: flex;
-        justify-content: space-between;
+        justify-content: left;
         .container{
             .row{
                 .col{
@@ -388,6 +532,7 @@ $block_fsize: 1.823vw;
         .topview__slider__item{
             width: 16%;
             overflow: hidden;
+            margin-right: 1%;
             
             .topview__slider__item__img{
                 overflow: hidden;
@@ -411,6 +556,7 @@ $block_fsize: 1.823vw;
             }
             .topview__slider__item__inf{
                 margin-top: 20px;
+                height: 20%;
                 .topview__slider__item__inf__title{
                     font-size: 16px;
                 }
@@ -661,7 +807,7 @@ $block_fsize: 1.823vw;
 // ARTICLE 
 .ar__wrapper{
     background:{
-        image: linear-gradient(to top, rgba($color: #0D0A1200, $alpha: 1), rgba($color: #0D0A1200, $alpha: 0), rgba($color: #0D0A1200, $alpha: 0)),linear-gradient(to top, rgba($color: #000000, $alpha: 0.5), rgba($color: #000000, $alpha: 0.5)), url("../img/article.png");
+        image: linear-gradient(to top, rgba($color: #0D0A1200, $alpha: 1), rgba($color: #0D0A1200, $alpha: 0), rgba($color: #0D0A1200, $alpha: 0)),linear-gradient(to top, rgba($color: #000000, $alpha: 0.5), rgba($color: #000000, $alpha: 0.5)), url("../images/rs/article.png");
         repeat: no-repeat;
         position: center top;
         size: cover;
@@ -778,12 +924,13 @@ $block_fsize: 1.823vw;
     }
     .chaplist__row{
         display: flex;
-        justify-content: space-between;
+        justify-content: left;
         margin-bottom: 20px;
 
         .chaplist__row__item{
             width: 19%;
             overflow: hidden;
+            margin-right: 1%;
             
             .chaplist__row__item__img{
                 overflow: hidden;
@@ -998,10 +1145,94 @@ $block_fsize: 1.823vw;
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+    .social__left, .social__right{
+        display: block;
+    }
+    .nav{
+        color: #fff;
+        padding: 25px 0 0 0 !important;
+        overflow: hidden;
+        background-color: rgba($color: #000000, $alpha: 0.25);
+        border-bottom: 1px solid #fff;
+        z-index: 99;
+        top: 0;
+        justify-content: space-between;
+        
+        .nav__logo {
+            position: relative;
+            left: 1%;
+            font:{
+                size: $logo_fsize;
+                family: 'SSB';
+            }
+            color: #fff;
+            margin: 0px 30px;
+        }
+        .nav__menu{
+            display: flex;
+            height: 100%;
+            .nav__menu__item{
+            }
+        }
+        .nav__search{
+            display: block;
+            white-space: nowrap;
+            border: 2px solid #fff;
+            margin: -0.5vw 2vw;
+            padding: 0.3vw 1.5vw;
+            border-radius: 0.25vw;
+            color: #fff;
+    
+            .nav__search__input{
+                display: block;
+                color: #fff;
+                border: none;
+                background: none;
+                width: 80%;
+                &:focus{
+                    outline: none;
+                }
+                &::placeholder{
+                    color: #fff;
+                }
+            }
+            .nav__search__button{
+                display: block;
+                cursor: pointer;
+                color: #fff;
+                border: none;
+                background: none;
+            }
+        }
+    
+        .nav__hambutton{
+            display: block;
+            position: relative;
+            margin: 0px 0.5vw;
+            z-index: 10;
+            .nav__hambutton__button{
+                font-size: 1.302vw;
+                cursor: pointer;
+                color: #fff;
+                border: none;
+                background: none;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+        .nav__hambutton__left{
+            display: none;
+        }
+        .nav__search__right{
+            display: none;
+        }
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+
 }
 
 /* Extra Extra large devices (large large laptops and desktops, 1440px and up) */

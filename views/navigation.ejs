@@ -1,6 +1,11 @@
 <div class="nav__wrapper">
     <div class="container-fluid nav">
         <div class="row d-flex justify-content-between">
+            
+            <div class="nav__hambutton__left">
+                <button class="nav__hambutton__button" onclick="openNavFull()"><i class="fas fa-bars"></i></button>
+            </div>
+            
             <div class="col-4">
                 <a href="/" class="nav__logo">taihen</a>
             </div>
@@ -27,17 +32,27 @@
                     
                 </ul>
             </div>
-            <div class="col-3">
+            <div class="col-3" style="text-align: right; padding: 0 !important;">
                 <form action="/search" method="POST" class="nav__search d-flex justify-content-between">
                     <input type="text" class="nav__search__input" placeholder="Tìm kiếm" name="search">
                     <button class="nav__search__button" type="submit"><i class="fas fa-search"></i></button>
                 </form>
+                <div class="nav__search__right">
+                    <button class="" onclick="openSearchFull()"><i class="fas fa-search"></i></button>
+                </div>
             </div>
             <div class="nav__hambutton">
                 <button class="nav__hambutton__button"><i class="fas fa-bars"></i></button>
             </div>
+            
         </div>
 
+    </div>
+    <div class="nav__search__mobile block--disable">
+        <form action="/search" method="POST" class="nav__search__mobile__form d-flex justify-content-between">
+            <input type="text" class="nav__search__mobile__input" placeholder="Tìm kiếm" name="search">
+            <button class="nav__search__mobile__button" type="submit"><i class="fas fa-search"></i></button>
+        </form>
     </div>
     <div class="container-fluid category cate--disable">
         <div class="container">
@@ -49,6 +64,53 @@
                             <ul class="category__list__col">
                                 <% for(let i = row*j; i < sess.category.length - row*(8 - j - 1); i++){%>
                                     <li class="category__list__col__item" title="<%= sess.category[i].cat_des%>"><a href="/article_list/<%= sess.category[i].cat_ID%>"><%= sess.category[i].cat_name%></a></li>
+                                <%}%>
+                            </ul>
+                        <%}%>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid nav--full" id="full">
+    <div class="nav--full__bg">
+
+    </div>
+    <div class="row d-flex justify-content-between">
+        <div class="col-12">
+            <ul class="nav--full__menu">
+                <li class="nav--full__menu__item">
+                    <a href="/article_list/0">Danh sách</a>
+                </li>
+                <li class="nav--full__menu__item" id="cate__mobile">
+                    Thể loại
+                </li>
+                <li class="nav--full__menu__item">
+                    <a href="/article_list/complete">Hoàn tất</a>
+                </li>
+                <li class="nav--full__menu__item">
+                    <a href="/article_list/hot">HOT</a>
+                </li>
+                <li class="nav--full__menu__item">
+                    <button onclick="openNavFull()"><i class="fas fa-arrow-left"></i></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid categoryfull cate--disable">
+        <div class="container">
+            <div class="row">
+                <div class="col" style="padding: 0 !important;">
+                    <i class="fas fa-arrow-left" id="cate__backbtn"></i>
+                    <div class="categoryfull__list">
+                        <% let row2 = Math.round(sess.category.length/3)%>
+                        <% for(let j = 0; j < 3; j++){%>
+                            <ul class="categoryfull__list__col">
+                                <% for(let i = row2*j; i < sess.category.length - row2*(3 - j - 1); i++){%>
+                                    <li class="categoryfull__list__col__item" title="<%= sess.category[i].cat_des%>"><a href="/article_list/<%= sess.category[i].cat_ID%>"><%= sess.category[i].cat_name%></a></li>
                                 <%}%>
                             </ul>
                         <%}%>
