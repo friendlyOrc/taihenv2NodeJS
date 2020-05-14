@@ -217,7 +217,6 @@ $block_fsize: 1.823vw;
     }
 }
 
-
 .nav--full{
     z-index: 999;
     position: fixed;
@@ -350,6 +349,7 @@ $block_fsize: 1.823vw;
         cursor: pointer;
     }
 }
+
 
 
 // WEEKLY CHOICE 
@@ -682,23 +682,26 @@ $block_fsize: 1.823vw;
 
 
 // FOOTER 
-.footer{
-    .footer__logo{
+.footer__mobile{
+    display: block;
+    .footer__mobile__logo{
         font:{
-            size: 60px;
+            size: 40px;
             family: 'SSB';
         }
-        color: #fff;
+        color: #8B8B8B;
         margin: 0px 30px;
         text-decoration: none;
     }
-    .footer__about, .footer__ad, .footer__social{
+    .footer__mobile__about, .footer__mobile__ad, .footer__mobile__social{
         list-style-type: none;
         li{
             margin-bottom: 10px;
             a{
-                color: #fff;
+                color: #8B8B8B;
                 text-decoration: none;
+                font-size: 12px;
+                white-space: nowrap;
             }
             &:hover{
                 a{
@@ -710,27 +713,69 @@ $block_fsize: 1.823vw;
             }
         }
     }
-    .footer__social{
-        display: flex;
-        justify-content: space-between;
-        padding: 0 !important;
-        .footer__social__icon{
-            font-size: 30px;
+    .footer__mobile__social__wrapper{
+        color: #8B8B8B;
+        border-top: 1px solid #8B8B8B;
+        border-bottom: 1px solid #8B8B8B;
+        padding: 10px auto !important;
+
+        .footer__mobile__social__title{
+            margin-top: 15px;
+            color: #8B8B8B;
+        }
+        .footer__mobile__social{
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+            margin: 0 auto;
+            padding: 0 !important;
+            .footer__mobile__social__icon{
+                margin-bottom: 15px;
+                a{
+                    i{
+                        color: #8B8B8B;
+                        font-size: 20px !important;
+                    }
+                }
+            }
         }
     }
-}
-
-// ARTICLE LIST 
-
-.arlist{
-    
-    .arlist__title{
-        margin: 120px 0 40px 0;
-    }
-    .arlist__row{
+    .footer__mobile__info{
+        margin-top: 15px;
+        font-size: 12px;
         display: flex;
         justify-content: space-between;
-        margin-bottom: 20px;
+        .footer__mobile__about{
+            padding: 0 !important;
+            text-align: right;
+            margin-right: 20px;
+            width: 40%;
+        }
+        .footer__mobile__ad{
+            padding: 0 !important;
+            text-align: left;
+            width: 40%;
+        }
+    }
+    
+}
+.footer{
+    display: none;
+}
+// ARTICLE LIST 
+.arlist{
+    display: none;
+}
+.arlist__mobile{
+    display: block;
+    .arlist__mobile__title{
+        font-size: 16px;
+        margin: 40px 0 15px 0;
+    }
+    .arlist__mobile__row{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
         .container{
             .row{
                 .col{
@@ -738,11 +783,10 @@ $block_fsize: 1.823vw;
                 }
             }
         }
-        .arlist__row__item{
-            width: 19%;
-            overflow: hidden;
+        .arlist__mobile__row__item{
+            width: 48%;
             
-            .arlist__row__item__img{
+            .arlist__mobile__row__item__img{
                 overflow: hidden;
                 padding: 0 !important;
                 height: 80%;
@@ -754,7 +798,7 @@ $block_fsize: 1.823vw;
             }
             &:hover{
                 text-decoration: none;
-                .arlist__row__item__img {
+                .arlist__mobile__row__item__img {
                     img{
                         transform: scale(1.2, 1.2);
                         transition: 0.5s ease-in-out;
@@ -762,15 +806,15 @@ $block_fsize: 1.823vw;
                     }
                 }
             }
-            .arlist__row__item__inf{
-                margin-top: 20px;
-                .arlist__row__item__inf__title{
+            .arlist__mobile__row__item__inf{
+                margin-top: 10px;
+                .arlist__mobile__row__item__inf__title{
                     font-size: 16px;
                 }
-                .arlist__row__item__inf__chap{
+                .arlist__mobile__row__item__inf__chap{
                     font-size: 14px;
                 }
-                .arlist__row__item__inf__time{
+                .arlist__mobile__row__item__inf__time{
                     color: #707070;
                     font-size: 12px;
                 }
@@ -779,7 +823,6 @@ $block_fsize: 1.823vw;
         }
     }
 }
-
 .pagination {
     display: inline-block;
     justify-content: center;
@@ -788,7 +831,8 @@ $block_fsize: 1.823vw;
     a {
         color: #fff;
         float: left;
-        padding: 8px 16px;
+        padding: 4px 8px;
+        font-size: 14px;
         text-decoration: none;
         &:hover{
             text-decoration: none;
@@ -1228,6 +1272,130 @@ $block_fsize: 1.823vw;
             display: none;
         }
     }
+
+    // FOOTER 
+    .footer__mobile{
+        display: none;
+    }
+    .footer{
+        display: block;
+        .footer__logo{
+            font:{
+                size: 60px;
+                family: 'SSB';
+            }
+            color: #fff;
+            margin: 0px 30px;
+            text-decoration: none;
+        }
+        .footer__about, .footer__ad, .footer__social{
+            list-style-type: none;
+            li{
+                margin-bottom: 10px;
+                a{
+                    color: #fff;
+                    text-decoration: none;
+                    white-space: nowrap;
+                }
+                &:hover{
+                    a{
+                        color: grey;
+                        i{
+                            color: grey;
+                        }
+                    }
+                }
+            }
+        }
+        .footer__social{
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 !important;
+            .footer__social__icon{
+                font-size: 30px;
+            }
+        }
+    }
+    .pagination {
+        display: inline-block;
+        justify-content: center;
+        margin: 30px auto 10vw auto;
+    
+        a {
+            padding: 8px 16px;
+            font-size: 18px;
+            &:hover{
+                i{
+                }
+            }
+          }
+    
+        .pagination--active{
+            border: 1px solid #fff;
+        }
+    }
+    .arlist__mobile{
+        display: none;
+    }
+    .arlist{
+        display: block;
+        .arlist__title{
+            margin: 120px 0 40px 0;
+        }
+        .arlist__row{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            .container{
+                .row{
+                    .col{
+                        padding: 0 0 !important;
+                    }
+                }
+            }
+            .arlist__row__item{
+                width: 19%;
+                
+                .arlist__row__item__img{
+                    overflow: hidden;
+                    padding: 0 !important;
+                    height: 80%;
+                    img{
+                        margin: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                &:hover{
+                    text-decoration: none;
+                    .arlist__row__item__img {
+                        img{
+                            transform: scale(1.2, 1.2);
+                            transition: 0.5s ease-in-out;
+    
+                        }
+                    }
+                }
+                .arlist__row__item__inf{
+                    margin-top: 20px;
+                    .arlist__row__item__inf__title{
+                        font-size: 16px;
+                    }
+                    .arlist__row__item__inf__chap{
+                        font-size: 14px;
+                    }
+                    .arlist__row__item__inf__time{
+                        color: #707070;
+                        font-size: 12px;
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

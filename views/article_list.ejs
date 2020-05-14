@@ -55,6 +55,50 @@
                                 <a href="/article_list/<%= cur_tag[0].cat_ID%>?page=<%= pagination.lastPage - 1%>">Last  <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
+
+                        <!-- MOBILE VERSION  -->
+                        <div class="arlist__mobile">
+                            <h2 class="arlist__mobile__title"><%= cur_tag[0].cat_name%></h2>
+                            <%let arrow = Math.round(articles.length/2); %>
+                            <% for(let i = 0; i < arrow; i++){%>
+                                <div class="arlist__mobile__row">
+                                    <% for(let j = 2*i; j < ((articles.length > (2*i + 2))? 2*i + 2 : articles.length); j++){%>
+                                        <a href="/article/<%= articles[j].ar_ID%>" class="arlist__mobile__row__item">
+                                            <div class="arlist__mobile__row__item__img">
+                                                <img src="/images/article/<%= articles[j].ar_pic%>" alt="" >
+                                            </div>
+                                            
+                                            <div class="arlist__mobile__row__item__inf">
+                                                <h3 class="arlist__mobile__row__item__inf__title">
+                                                    <% if(articles[j].ar_name.length > 25){%>
+                                                        <%= articles[j].ar_name.substring(0, 25)%>...
+                                                    <%}else{%>
+                                                        <%= articles[j].ar_name%>      
+                                                    <%}%>  
+                                                </h3>
+                                                <h3 class="arlist__mobile__row__item__inf__chap badge badge-pill badge-success"><%= chapters[j][0].chap_name%>  </h3>
+                                                <!-- <p class="arlist__row__item__inf__time">2020</p> -->
+                                            </div>
+                                        </a>
+                                    <%}%>
+                                </div>
+                            <%}%>
+
+
+                            <div class="pagination">
+                                <a href="/article_list/<%= cur_tag[0].cat_ID%>?page=0"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i>  First</a>
+                                <a href="/article_list/<%= cur_tag[0].cat_ID%>?page=<%= pagination.previous%>"><i class="fas fa-chevron-left"></i>  Prev</a>
+                                <% for(let i = (pagination.current - 3 > 0)?pagination.current - 3: 0; i < pagination.lastItem; i++) {%>
+                                    <%if(pagination.current === i){%>
+                                        <a href="/article_list/<%= cur_tag[0].cat_ID%>?page=<%= i%>" class="pagination--active"><%= i + 1%></a>
+                                    <%} else {%>
+                                        <a href="/article_list/<%= cur_tag[0].cat_ID%>?page=<%= i%>"><%= i + 1%></a>
+                                    <%}%>
+                                <%}%>
+                                <a href="/article_list/<%= cur_tag[0].cat_ID%>?page=<%= pagination.next%>">Next  <i class="fas fa-chevron-right"></i></a>
+                                <a href="/article_list/<%= cur_tag[0].cat_ID%>?page=<%= pagination.lastPage - 1%>">Last  <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,24 +106,10 @@
             <!-- FOOTER  -->
             <%include footer%>
         </div>
-
-
         
         
         
         
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
-        <script>
-            $(function(){
-                $("#cate").click(function(){
-                    $(this).toggleClass("nav--active");
-                    $(".category").toggleClass("cate--active").toggleClass("cate--disable");
-                })
-            });
-           
-        </script>
+        <%include main_js%>
     </body>
 </html>
