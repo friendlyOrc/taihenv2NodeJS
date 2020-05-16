@@ -15,7 +15,11 @@
                     <div class="col">
                         <div class="chapter">
                             <div class="chapter__pagination">
-                                <a href="#"><i class="fas fa-arrow-left"></i> </a>
+                                <%if(chap_ID === sess.chapters[index][sess.chapters[index].length - 1].chap_ID) {%>
+                                    <a href="#"><i class="fas fa-arrow-left"  style="color: #808080;"></i> </a>
+                                <%} else {%>
+                                    <a href="/chapter/<%= sess.articles[index].ar_ID%>-<%= chap_ID - 1%>"><i class="fas fa-arrow-left"></i> </a>
+                                <%}%>
                                 <select onchange="changeChapter(<%= sess.articles[index].ar_ID%>)" id="chapter_select">
                                     <%for(let i = 0; i < sess.chapters[index].length; i++){%>
                                         <% if(chap_ID == sess.chapters[index][i].chap_ID){%>
@@ -25,7 +29,12 @@
                                         <%}%>
                                     <%}%>
                                 </select>
-                                <a href="#"><i class="fas fa-arrow-right"></i></a>
+                                
+                                <%if(chapter[0].chap_ID === sess.chapters[index][0].chap_ID) {%>
+                                    <a href="#"><i class="fas fa-arrow-right"  style="color: #808080;"></i></a>
+                                <%} else {%>
+                                    <a href="/chapter/<%= sess.articles[index].ar_ID%>-<%= chap_ID + 1%>"><i class="fas fa-arrow-right"></i></a>
+                                <%}%>
                             </div>
 
                             <div class="chapter__page">
@@ -35,8 +44,13 @@
                             </div>
                             
                             
+                            
                             <div class="chapter__pagination">
-                                <a href="#"><i class="fas fa-arrow-left"></i> </a>
+                                <%if(chap_ID === sess.chapters[index][sess.chapters[index].length - 1].chap_ID) {%>
+                                    <a href="#"><i class="fas fa-arrow-left"  style="color: #808080;"></i> </a>
+                                <%} else {%>
+                                    <a href="/chapter/<%= sess.articles[index].ar_ID%>-<%= chap_ID - 1%>"><i class="fas fa-arrow-left"></i> </a>
+                                <%}%>
                                 <select onchange="changeChapter(<%= sess.articles[index].ar_ID%>)" id="chapter_select">
                                     <%for(let i = 0; i < sess.chapters[index].length; i++){%>
                                         <% if(chap_ID == sess.chapters[index][i].chap_ID){%>
@@ -46,7 +60,12 @@
                                         <%}%>
                                     <%}%>
                                 </select>
-                                <a href="#"><i class="fas fa-arrow-right"></i></a>
+                                
+                                <%if(chapter[0].chap_ID === sess.chapters[index][0].chap_ID) {%>
+                                    <a href="#"><i class="fas fa-arrow-right"  style="color: #808080;"></i></a>
+                                <%} else {%>
+                                    <a href="/chapter/<%= sess.articles[index].ar_ID%>-<%= chap_ID + 1%>"><i class="fas fa-arrow-right"></i></a>
+                                <%}%>
                             </div>
                         </div>
                     </div>

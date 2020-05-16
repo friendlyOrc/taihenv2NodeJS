@@ -41,6 +41,13 @@
         behavior: 'smooth'
         });
     }
+    function toChapListMobile(){
+        window.scroll({
+        top: $("#chaplist__mobile").offset().top, 
+        left: 0, 
+        behavior: 'smooth'
+        });
+    }
     
     function changeChapter(ar_ID){
         let temp = document.querySelector('#chapter_select').value;
