@@ -2,10 +2,18 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
+<script src="/javascripts/owl.carousel.js"></script>
+
 <script>
     function toTopView(){
         window.scroll({
         top: $("#topview").offset().top, 
+        left: 0, 
+        behavior: 'smooth'
+        });
+    }function toTopViewMobile(){
+        window.scroll({
+        top: $("#topviewmobile").offset().top, 
         left: 0, 
         behavior: 'smooth'
         });
@@ -54,5 +62,31 @@
         let http = `/chapter/${ar_ID}-${temp}`;
         window.location.href = http;
     }
+
+        $(".owl-carousel").owlCarousel({
+            autoplay: true,
+            loop:true,
+            margin:20,
+            dots: false,
+            navText: false,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                },
+                600:{
+                    items:3,
+                    nav:false
+                },
+                1000:{
+                    items:5,
+                    nav:true,
+                    loop:false
+                }
+            }
+        });
+        
+        
     
 </script>
