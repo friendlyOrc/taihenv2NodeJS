@@ -2,10 +2,6 @@
     <div class="container-fluid nav">
         <div class="row d-flex justify-content-between">
             
-            <div class="nav__hambutton__left">
-                <button class="nav__hambutton__button" onclick="openNavFull()"><i class="fas fa-bars"></i></button>
-            </div>
-            
             <div class="col-4">
                 <a href="/" class="nav__logo">taihen</a>
             </div>
@@ -72,6 +68,33 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="nav__mobile__wrapper">
+    <div class="container-fluid nav__mobil">
+        <div class="row d-flex justify-content-between">
+            
+            <div class="nav__hambutton__left">
+                <button class="nav__hambutton__button" onclick="openNavFull()"><i class="fas fa-bars"></i></button>
+            </div>
+            
+            <div class="nav__logo">
+                <a href="/" class="">taihen</a>
+            </div>
+
+            <div class="nav__search__right">
+                <button class="" onclick="openSearchFull()"><i class="fas fa-search"></i></button>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="nav__search__mobile block--disable">
+        <form action="/search" method="POST" class="nav__search__mobile__form d-flex justify-content-between">
+            <input type="text" class="nav__search__mobile__input" placeholder="Tìm kiếm" name="search">
+            <button class="nav__search__mobile__button" type="submit"><i class="fas fa-search"></i></button>
+        </form>
     </div>
 </div>
 

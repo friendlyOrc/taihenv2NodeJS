@@ -3,6 +3,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <script src="/javascripts/owl.carousel.js"></script>
+<script src="/javascripts/jquery.visible.js"></script>
 
 <script>
     function toTopView(){
@@ -87,6 +88,13 @@
             }
         });
         
-        
+        $(window).on('scroll', function(){
+            
+            if($(window).scrollTop() + $(window).height() == $(document).height()){
+                $('.downbtn__inner').removeClass('block--active').addClass('block--disable');
+            }else{
+                $('.downbtn__inner').removeClass('block--disable').addClass('block--active');
+            }
+        })
     
 </script>

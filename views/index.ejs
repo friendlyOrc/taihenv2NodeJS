@@ -20,6 +20,20 @@
         <% include navigation%>
         
         
+        <div class="downbtn">
+          <div class="downbtn__inner block--active">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="downbtn2">
+          <div class="downbtn2__inner block--active">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
 
         <!-- WEEKLY CHOICE  -->
 
@@ -43,11 +57,12 @@
                                                 <div class="weekly__slider__item__inf">
                                                     <a href="/article/<%= sess.hot_articles[i].ar_ID%>" title="<%= sess.hot_articles[i].ar_name%>">
                                                         <h4 class="weekly__slider__item__inf__title">
-                                                          <% if(sess.hot_articles[i].ar_name.length > 20){%>
-                                                            <%= sess.hot_articles[i].ar_name.substring(0, 20)%>...
+                                                          <% if(sess.hot_articles[i].ar_name.length > 34){%>
+                                                            <%= sess.hot_articles[i].ar_name.substring(0, 34)%>...
                                                           <%}else{%>
                                                             <%= sess.hot_articles[i].ar_name%>      
                                                           <%}%>  
+                                                          <br>
                                                             <div class="weekly__slider__item__inf__badge">
                                                                 HOT
                                                             </div>
@@ -69,9 +84,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="weekly__downbtn">
-                            <button onclick="toTopView()"><i class="fas fa-angle-double-down"></i></button>
-                        </div>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -92,11 +104,12 @@
                                               <div class="weekly__slider__item__inf">
                                                   <a href="/article/<%= sess.hot_articles[i].ar_ID%>" title="<%= sess.hot_articles[i].ar_name%>">
                                                       <h4 class="weekly__slider__item__inf__title">
-                                                        <% if(sess.hot_articles[i].ar_name.length > 20){%>
-                                                          <%= sess.hot_articles[i].ar_name.substring(0, 20)%>...
+                                                        <% if(sess.hot_articles[i].ar_name.length > 34){%>
+                                                          <%= sess.hot_articles[i].ar_name.substring(0, 34)%>...
                                                         <%}else{%>
                                                           <%= sess.hot_articles[i].ar_name%>      
                                                         <%}%>  
+                                                        <br>
                                                           <div class="weekly__slider__item__inf__badge">
                                                               HOT
                                                           </div>
@@ -119,9 +132,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="weekly__downbtn">
-                            <button onclick="toTopView()"><i class="fas fa-angle-double-down"></i></button>
-                        </div>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -142,11 +152,12 @@
                                                 <div class="weekly__slider__item__inf">
                                                     <a href="/article/<%= sess.hot_articles[i].ar_ID%>" title="<%= sess.hot_articles[i].ar_name%>">
                                                         <h4 class="weekly__slider__item__inf__title">
-                                                          <% if(sess.hot_articles[i].ar_name.length > 20){%>
-                                                            <%= sess.hot_articles[i].ar_name.substring(0, 20)%>...
+                                                          <% if(sess.hot_articles[i].ar_name.length > 34){%>
+                                                            <%= sess.hot_articles[i].ar_name.substring(0, 34)%>...
                                                           <%}else{%>
                                                             <%= sess.hot_articles[i].ar_name%>      
                                                           <%}%>  
+                                                          <br>
                                                             <div class="weekly__slider__item__inf__badge">
                                                                 HOT
                                                             </div>
@@ -168,9 +179,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="weekly__downbtn">
-                            <button onclick="toTopView()"><i class="fas fa-angle-double-down"></i></button>
                         </div>
                     </div>
                 </div>
@@ -197,8 +205,8 @@
                   <div class="carousel__mobile__item__inf">
                       <a href="/article/<%= sess.hot_articles[i].ar_ID%>" title="<%= sess.hot_articles[i].ar_name%>">
                           <h4 class="carousel__mobile__item__inf__title">
-                            <% if(sess.hot_articles[i].ar_name.length > 20){%>
-                              <%= sess.hot_articles[i].ar_name.substring(0, 20)%>...
+                            <% if(sess.hot_articles[i].ar_name.length > 60){%>
+                              <%= sess.hot_articles[i].ar_name.substring(0, 60)%>...
                             <%}else{%>
                               <%= sess.hot_articles[i].ar_name%>      
                             <%}%>  
@@ -219,150 +227,150 @@
             </div>
             <div class="carousel__mobile__subtitle__text"><span>Best of the week</span></div>
           </div>
-          <div class="carousel__mobile__downbtn">
-            <button onclick="toTopViewMobile()"><i class="fas fa-angle-double-down"></i></button>
         </div>
-        </div>
-
-        <div class="topview__mobile" id="topviewmobile">
-          
-          <h6>TOP View:</h6>
-            <div id="topviewtab" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                  <div class="carousel-item active">
-                      <div class="topview__slider">
-                        <%for(let i = 0; i < ((sess.top_articles.length >= 4)? 4 : sess.top_articles.length); i++){%>
-                          <a href="/article/<%= sess.top_articles[i].ar_ID%>" class="topview__slider__item">
-                              <div class="topview__slider__item__img">
-                                  <img src="/images/article/<%= sess.top_articles[i].ar_pic%>" alt="" >
-                              </div>
-                              
-                              <div class="topview__slider__item__inf">
-                                  <h3 class="topview__slider__item__inf__title">
-                                    <% if(sess.top_articles[i].ar_name.length > 15){%>
-                                      <%= sess.top_articles[i].ar_name.substring(0, 15)%>...
-                                    <%}else{%>
-                                      <%= sess.top_articles[i].ar_name%>      
-                                    <%}%>     
-                                  </h3>
-                                  <p class="topview__slider__item__inf__time">
-                                    <% let arr = sess.top_articles[i].ar_date.split('-')%>
-                                    <%= arr[2] + "-" + arr[1] + "-" + arr[0]%>
-                                    </p>
-                              </div>
-                          </a>
-                          <%}%>
-                      </div>
-                  </div>
-                  <%if(sess.top_articles.length >= 4){%>
-                    <div class="carousel-item">
-                      <div class="topview__slider">
-                        <%for(let i = 4; i < ((sess.top_articles.length >= 8)? 8 : sess.top_articles.length); i++){%>
-                          <a href="/article/<%= sess.top_articles[i].ar_ID%>" class="topview__slider__item">
-                              <div class="topview__slider__item__img">
-                                  <img src="/images/article/<%= sess.top_articles[i].ar_pic%>" alt="" >
-                              </div>
-                              
-                              <div class="topview__slider__item__inf">
-                                  <h3 class="topview__slider__item__inf__title">
-                                    <% if(sess.top_articles[i].ar_name.length > 15){%>
-                                      <%= sess.top_articles[i].ar_name.substring(0, 15)%>...
-                                    <%}else{%>
-                                      <%= sess.top_articles[i].ar_name%>      
-                                    <%}%>     
-                                  </h3>
-                                  <p class="topview__slider__item__inf__time">
-                                    <% let arr = sess.top_articles[i].ar_date.split('-')%>
-                                    <%= arr[2] + "-" + arr[1] + "-" + arr[0]%>
-                                    </p>
-                              </div>
-                          </a>
-                          <%}%>
-                      </div>
-                    </div>
-                  <%}%>
-
-                  <%if(sess.top_articles.length >= 8){%>
-                    <div class="carousel-item">
-                      <div class="topview__slider">
-                        <%for(let i = 8; i < ((sess.top_articles.length >= 12)? 12 : sess.top_articles.length); i++){%>
-                          <a href="/article/<%= sess.top_articles[i].ar_ID%>" class="topview__slider__item">
-                              <div class="topview__slider__item__img">
-                                  <img src="/images/article/<%= sess.top_articles[i].ar_pic%>" alt="" >
-                              </div>
-                              
-                              <div class="topview__slider__item__inf">
-                                  <h3 class="topview__slider__item__inf__title">
-                                    <% if(sess.top_articles[i].ar_name.length > 15){%>
-                                      <%= sess.top_articles[i].ar_name.substring(0, 15)%>...
-                                    <%}else{%>
-                                      <%= sess.top_articles[i].ar_name%>      
-                                    <%}%>     
-                                  </h3>
-                                  <p class="topview__slider__item__inf__time">
-                                    <% let arr = sess.top_articles[i].ar_date.split('-')%>
-                                    <%= arr[2] + "-" + arr[1] + "-" + arr[0]%>
-                                    </p>
-                              </div>
-                          </a>
-                          <%}%>
-                      </div>
-                    </div>
-                  <%}%>
-                  
-              </div>
-  
-              <a class="tv-prev carousel-control-prev" href="#topviewtab" role="button" data-slide="prev">
-                  <span class="" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
-                  <span class="sr-only">Previous</span>
-              </a>
-              <a class="tv-next carousel-control-next" href="#topviewtab" role="button" data-slide="next">
-                  <span class="" aria-hidden="true"><i class="fas fa-chevron-right"></i>
-                  <span class="sr-only">Next</span>
-              </a>
-          </div>
-        </div>
-        
-        <div class="container-fluid newar__mobile">
-          <div class="container">
-              <div class="row">
-                  <div class="col" >
-                      <h2 class="newar__mobile__title">New Releases</h2>
-                      
-                      <div class="newar__mobile__slider__wrapper">
-                        <%for(let j = 0; j < 3; j++){%>
-                          <div class="newar__mobile__slider">
-                            <%for(let i = j*2; i < j*2 + 2; i++){%>
-                                  <div class="newar__mobile__slider__item">
-                                      <div class="newar__mobile__slider__item__img">
-                                          <a href="/article/<%= sess.articles[i].ar_ID%>" title="<%= sess.articles[i].ar_name%>"><img src="/images/article/<%= sess.articles[i].ar_pic%>" alt=""></a>
-                                      </div>
-                                      
-                                      <div class="newar__mobile__slider__item__inf">
-                                          <a href="/article/<%= sess.articles[i].ar_ID%>" title="<%= sess.articles[i].ar_name%>">
-                                              <h4 class="newar__mobile__slider__item__inf__title">
-                                                <% if(sess.articles[i].ar_name.length > 25){%>
-                                                  <%= sess.articles[i].ar_name.substring(0, 25)%>...
-                                                <%}else{%>
-                                                  <%= sess.articles[i].ar_name%>      
-                                                <%}%> 
-                                              </h4>
-                                              <span class="newar__mobile__slider__item__inf__chap badge badge-pill badge-success"><%= sess.chapters[i][0].chap_name%></span>
-                                          </a>
-                                          
-                                      </div>
-                                  </div>
+        <div class="top__new__wrapper">
+          <div class="topview__mobile" id="topviewmobile">
+            <h6>TOP View:</h6>
+              <div id="topviewtab2" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="topview__slider">
+                          <%for(let i = 0; i < ((sess.top_articles.length >= 4)? 4 : sess.top_articles.length); i++){%>
+                            <a href="/article/<%= sess.top_articles[i].ar_ID%>" class="topview__slider__item">
+                                <div class="topview__slider__item__img">
+                                    <img src="/images/article/<%= sess.top_articles[i].ar_pic%>" alt="" >
+                                </div>
+                                
+                                <div class="topview__slider__item__inf">
+                                    <h3 class="topview__slider__item__inf__title">
+                                      <% if(sess.top_articles[i].ar_name.length > 18){%>
+                                        <%= sess.top_articles[i].ar_name.substring(0, 18)%>...
+                                      <%}else{%>
+                                        <%= sess.top_articles[i].ar_name%>      
+                                      <%}%>     
+                                    </h3>
+                                    <p class="topview__slider__item__inf__time">
+                                      <% let arr = sess.top_articles[i].ar_date.split('-')%>
+                                      <%= arr[2] + "-" + arr[1] + "-" + arr[0]%>
+                                      </p>
+                                </div>
+                            </a>
                             <%}%>
-                          </div>
-                        <%}%>
-                        <div class="newar__mobile__morebtn">
-                          <a href="/article_list/0"><span>XEM THÊM</span></a>
+                        </div>
+                    </div>
+                    <%if(sess.top_articles.length >= 4){%>
+                      <div class="carousel-item">
+                        <div class="topview__slider">
+                          <%for(let i = 4; i < ((sess.top_articles.length >= 8)? 8 : sess.top_articles.length); i++){%>
+                            <a href="/article/<%= sess.top_articles[i].ar_ID%>" class="topview__slider__item">
+                                <div class="topview__slider__item__img">
+                                    <img src="/images/article/<%= sess.top_articles[i].ar_pic%>" alt="" >
+                                </div>
+                                
+                                <div class="topview__slider__item__inf">
+                                    <h3 class="topview__slider__item__inf__title">
+                                      <% if(sess.top_articles[i].ar_name.length > 15){%>
+                                        <%= sess.top_articles[i].ar_name.substring(0, 15)%>...
+                                      <%}else{%>
+                                        <%= sess.top_articles[i].ar_name%>      
+                                      <%}%>     
+                                    </h3>
+                                    <p class="topview__slider__item__inf__time">
+                                      <% let arr = sess.top_articles[i].ar_date.split('-')%>
+                                      <%= arr[2] + "-" + arr[1] + "-" + arr[0]%>
+                                      </p>
+                                </div>
+                            </a>
+                            <%}%>
                         </div>
                       </div>
-                  </div>
-              </div>
+                    <%}%>
+
+                    <%if(sess.top_articles.length >= 8){%>
+                      <div class="carousel-item">
+                        <div class="topview__slider">
+                          <%for(let i = 8; i < ((sess.top_articles.length >= 12)? 12 : sess.top_articles.length); i++){%>
+                            <a href="/article/<%= sess.top_articles[i].ar_ID%>" class="topview__slider__item">
+                                <div class="topview__slider__item__img">
+                                    <img src="/images/article/<%= sess.top_articles[i].ar_pic%>" alt="" >
+                                </div>
+                                
+                                <div class="topview__slider__item__inf">
+                                    <h3 class="topview__slider__item__inf__title">
+                                      <% if(sess.top_articles[i].ar_name.length > 15){%>
+                                        <%= sess.top_articles[i].ar_name.substring(0, 15)%>...
+                                      <%}else{%>
+                                        <%= sess.top_articles[i].ar_name%>      
+                                      <%}%>     
+                                    </h3>
+                                    <p class="topview__slider__item__inf__time">
+                                      <% let arr = sess.top_articles[i].ar_date.split('-')%>
+                                      <%= arr[2] + "-" + arr[1] + "-" + arr[0]%>
+                                      </p>
+                                </div>
+                            </a>
+                            <%}%>
+                        </div>
+                      </div>
+                    <%}%>
+                    
+                </div>
+    
+                <a class="tv-prev carousel-control-prev" href="#topviewtab2" role="button" data-slide="prev">
+                    <span class="" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="tv-next carousel-control-next" href="#topviewtab2" role="button" data-slide="next">
+                    <span class="" aria-hidden="true"><i class="fas fa-chevron-right"></i>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
           </div>
+          
+          <div class="container-fluid newar__mobile">
+            <div class="container">
+                <div class="row">
+                    <div class="col" >
+                        <h2 class="newar__mobile__title">New Releases</h2>
+                        
+                        <div class="newar__mobile__slider__wrapper">
+                          <%for(let j = 0; j < 3; j++){%>
+                            <div class="newar__mobile__slider">
+                              <%for(let i = j*2; i < j*2 + 2; i++){%>
+                                    <div class="newar__mobile__slider__item">
+                                        <div class="newar__mobile__slider__item__img">
+                                            <a href="/article/<%= sess.articles[i].ar_ID%>" title="<%= sess.articles[i].ar_name%>"><img src="/images/article/<%= sess.articles[i].ar_pic%>" alt=""></a>
+                                        </div>
+                                        
+                                        <div class="newar__mobile__slider__item__inf">
+                                            <a href="/article/<%= sess.articles[i].ar_ID%>" title="<%= sess.articles[i].ar_name%>">
+                                                <h4 class="newar__mobile__slider__item__inf__title" style="white-space: 2;">
+                                                  <% if(sess.articles[i].ar_name.length > 40){%>
+                                                    <%= sess.articles[i].ar_name.substring(0, 40)%>...
+                                                  <%}else{%>
+                                                    <%= sess.articles[i].ar_name%>      
+                                                  <%}%> 
+                                                </h4>
+                                                <span class="newar__mobile__slider__item__inf__chap badge badge-pill badge-success"><%= sess.chapters[i][0].chap_name%></span>
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                              <%}%>
+                            </div>
+                          <%}%>
+                          <div class="newar__mobile__morebtn">
+                            <a href="/article_list/0"><span>XEM THÊM</span></a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          
+          <%include footer%>
         </div>
+        
 
         <div class="container-fluid ind__main">
             <!-- TOP VIEW  -->
@@ -383,8 +391,8 @@
                                                 
                                                 <div class="topview__slider__item__inf">
                                                     <h3 class="topview__slider__item__inf__title">
-                                                      <% if(sess.top_articles[i].ar_name.length > 15){%>
-                                                        <%= sess.top_articles[i].ar_name.substring(0, 15)%>...
+                                                      <% if(sess.top_articles[i].ar_name.length > 18){%>
+                                                        <%= sess.top_articles[i].ar_name.substring(0, 18)%>...
                                                       <%}else{%>
                                                         <%= sess.top_articles[i].ar_name%>      
                                                       <%}%>     
@@ -409,8 +417,8 @@
                                                 
                                                 <div class="topview__slider__item__inf">
                                                     <h3 class="topview__slider__item__inf__title">
-                                                      <% if(sess.top_articles[i].ar_name.length > 15){%>
-                                                        <%= sess.top_articles[i].ar_name.substring(0, 15)%>...
+                                                      <% if(sess.top_articles[i].ar_name.length > 18){%>
+                                                        <%= sess.top_articles[i].ar_name.substring(0, 18)%>...
                                                       <%}else{%>
                                                         <%= sess.top_articles[i].ar_name%>      
                                                       <%}%>     
@@ -463,8 +471,8 @@
                                                 <div class="newar__slider__item__inf">
                                                     <a href="/article/<%= sess.articles[i].ar_ID%>" title="<%= sess.articles[i].ar_name%>">
                                                         <h4 class="newar__slider__item__inf__title">
-                                                          <% if(sess.articles[i].ar_name.length > 25){%>
-                                                            <%= sess.articles[i].ar_name.substring(0, 25)%>...
+                                                          <% if(sess.articles[i].ar_name.length > 33){%>
+                                                            <%= sess.articles[i].ar_name.substring(0, 33)%>...
                                                           <%}else{%>
                                                             <%= sess.articles[i].ar_name%>      
                                                           <%}%> 
@@ -501,7 +509,7 @@
 
         
         
-
+        <span class="lastft"></span>
         <%include main_js%>
     </body>
 </html>

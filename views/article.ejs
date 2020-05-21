@@ -8,6 +8,14 @@
         <!-- NAV  -->
         <% include navigation%>
         
+        <div class="downbtn">
+            <div class="downbtn__inner block--active">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+        </div>
+
         <!-- ARTICLE   -->
         <div class="container-fluid ar__wrapper">
             <div class="container">
@@ -44,9 +52,6 @@
                                 </p>
                                 <a href="/chapter/<%= sess.articles[index].ar_ID%>-1" class="article__inf__btn"><span>ĐỌC NGAY</span></a>
                             </div>
-                        </div>
-                        <div class="article__downbtn">
-                            <button onclick="toChapList()"><i class="fas fa-angle-double-down"></i></button>
                         </div>
                     </div>
                 </div>
@@ -92,9 +97,6 @@
 
         <!-- ARTICLE MOBILE  -->
         <div class="container-fluid ar__wrapper__mobile">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
 
                         <div class="article__mobile">
                             <div class="article__mobile__img">
@@ -104,7 +106,7 @@
                                 
                                 <p class="article__mobile__inf__title"><%= sess.articles[index].ar_name%></p>
                                 
-                                <span><i class="fas fa-star"></i>  <i class="fas fa-star"></i>  <i class="fas fa-star"></i>  <i class="fas fa-star"></i>  <i class="fas fa-star"></i></span>
+                                <p><i class="fas fa-star"></i>  <i class="fas fa-star"></i>  <i class="fas fa-star"></i>  <i class="fas fa-star"></i>  <i class="fas fa-star"></i></p>
 
                                 <div class="article__mobile__inf__catelist">
                                     <%for(var j = 0; j < sess.cate[index].length; j++) {%>
@@ -123,18 +125,17 @@
                                     <%}%>
                                 </p>
                                 <p>
-                                    <%= sess.articles[index].ar_des%>
+                                    <% if(sess.articles[index].ar_des.length > 300){%>
+                                        <%= sess.articles[index].ar_des.substring(0, 300)%>... 
+                                        <!-- <a href="" onclick="">Xem thêm</a> -->
+                                      <%}else{%>
+                                        <%= sess.articles[index].ar_des%>      
+                                      <%}%>   
                                 </p>
                                 <a href="/chapter/<%= sess.articles[index].ar_ID%>-1" class="article__mobile__inf__btn"><span>ĐỌC NGAY</span></a>
                             </div>
                         </div>
-                        <div class="article__downbtn__mobile">
-                            <button onclick="toChapListMobile()"><i class="fas fa-angle-double-down"></i></button>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
 
         <!-- CHAPLIST MOBILE  -->
         <div class="container-fluid chaplist__wrapper__mobile" id="chaplist__mobile">
