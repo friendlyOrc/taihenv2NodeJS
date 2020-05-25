@@ -1,11 +1,12 @@
 var mysql = require('mysql');
 var connection;
 var db_config = {
-  host     : 'us-cdbr-east-06.cleardb.net',
-  user     : 'bcc8fd8e5ad3d2',
-  password : 'aa0ecdeb',
-  database: "heroku_85e7c5d6d301ddc",
-  dateStrings: true
+
+host     : 'us-cdbr-east-06.cleardb.net',
+user     : 'bcc8fd8e5ad3d2',
+password : 'aa0ecdeb',
+database: "heroku_85e7c5d6d301ddc",
+dateStrings: true
 };
 
 function handleDisconnect() {
