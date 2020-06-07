@@ -7,6 +7,7 @@ user     : 'bcc8fd8e5ad3d2',
 password : 'aa0ecdeb',
 database: "heroku_85e7c5d6d301ddc",
 dateStrings: true
+
 };
 
 function handleDisconnect() {

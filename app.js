@@ -69,14 +69,14 @@ app.use('/', function(req, res, next){
         sess.hot_chapter[i] = await query(query3, sess.hot_articles[i].ar_ID);
       }
       
-      sess.top_articles = await query("SELECT count_view.ar_ID, article.ar_name, article.ar_date, article.ar_pic, COUNT(count_view.ar_ID) as num FROM count_view INNER JOIN article ON count_view.ar_ID = article.ar_ID WHERE MONTH(count_view.`time`) = MONTH(curdate()) GROUP BY count_view.ar_ID ORDER BY num DESC LIMIT 12;");
+      sess.top_articles = await query("SELECT count_view.ar_ID, article.ar_name, article.ar_date, article.ar_pic, COUNT(count_view.ar_ID) as num FROM count_view INNER JOIN article ON count_view.ar_ID = article.ar_ID GROUP BY count_view.ar_ID ORDER BY num DESC LIMIT 12;");
       sess.top_chapter = [];
       for(let i = 0; i < sess.top_articles.length; i++){
         let query3 = "SELECT * from chapter WHERE chapter.ar_ID = ? ORDER BY chapter.chap_ID DESC LIMIT 1";
         sess.top_chapter[i] = await query(query3, sess.top_articles[i].ar_ID);
       }
     }
-    // console.log(sess.category);
+    // console.log(sess.top_articles);
 
     next();
     

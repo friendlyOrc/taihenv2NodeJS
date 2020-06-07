@@ -27,7 +27,7 @@
     }
     $(function(){
         $("#cate").click(function(){
-            $(this).toggleClass("nav--active");
+            $(this).toggleClass("");
             $(".category").toggleClass("cate--active").toggleClass("cate--disable");
         })
     });
@@ -64,30 +64,52 @@
         window.location.href = http;
     }
 
-        $(".owl-carousel").owlCarousel({
-            autoplay: true,
-            loop:true,
-            margin:20,
-            // dots: false,
-            nav: false,
-            navText: false,
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:1,
-                    nav:true
-                },
-                600:{
-                    items:3,
-                    nav:false
-                },
-                1000:{
-                    items:5,
-                    nav:true,
-                    loop:false
-                }
+    $("#owl-wl").owlCarousel({
+        autoplay: true,
+        loop:true,
+        dots: true,
+        nav: false,
+        navText: false,
+        items:1
+    });
+
+    $("#owl__one").owlCarousel({
+        autoplay: true,
+        loop:true,
+        margin:20,
+        // dots: false,
+        nav: false,
+        navText: false,
+        responsiveClass:true,
+        center: true,
+        items:2,
+        margin:10,
+        responsive:{
+            600:{
+                items:6
             }
-        });
+        }
+    });
+    $("#owl__topview__mobile").owlCarousel({
+        autoplay: true,
+        loop:true,
+        margin: 10,
+        // dots: false,
+        nav: false,
+        navText: false,
+        responsiveClass:true,
+        items:4
+    });
+    $("#owl__bow").owlCarousel({
+        autoplay: true,
+        loop:true,
+        margin: 20,
+        // dots: false,
+        nav: false,
+        navText: false,
+        responsiveClass:true,
+        items:3
+    });
         
         $(window).on('scroll', function(){
             

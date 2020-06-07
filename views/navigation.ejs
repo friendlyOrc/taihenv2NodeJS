@@ -1,5 +1,9 @@
-<div class="nav__wrapper">
+<div class="nav__wrapper block--active">
+    <%if(page === 'index'){%>
+    <div class="container-fluid nav nav--bordered">
+    <%}else{%>
     <div class="container-fluid nav">
+    <%}%>
         <div class="row d-flex justify-content-between">
             
             <div class="col-4">
