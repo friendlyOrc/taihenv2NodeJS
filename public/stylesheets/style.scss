@@ -928,7 +928,7 @@ body{
     .carousel__mobile__item{
         position: relative;
         .carousel__mobile__item__img{
-            height: 40vh;
+            height: 45vh;
             position: relative;
             width: 100%;
             img{
@@ -1075,11 +1075,6 @@ body{
             &:hover{
                 text-decoration: none;
                 .topview__slider__item__img {
-                    img{
-                        transform: scale(1.2, 1.2);
-                        transition: 0.5s ease-in-out;
-
-                    }
                 }
             }
             .topview__slider__item__inf{
@@ -1149,10 +1144,6 @@ body{
                     top: -20%;
                 }
                 &:hover{
-                    img{
-                        transform: scale(1.2, 1.2);
-                        transition: 0.5s ease-in-out;
-                    }
                 }
                 
                 .newar__mobile__slider__item__img__chap{
@@ -1352,11 +1343,6 @@ body{
             &:hover{
                 text-decoration: none;
                 .arlist__mobile__row__item__img {
-                    img{
-                        transform: scale(1.2, 1.2);
-                        transition: 0.5s ease-in-out;
-
-                    }
                 }
             }
             .arlist__mobile__row__item__inf{
@@ -1621,11 +1607,6 @@ body{
             &:hover{
                 text-decoration: none;
                 .chaplist__mobile__row__item__img {
-                    img{
-                        transform: scale(1.2, 1.2);
-                        transition: 0.5s ease-in-out;
-
-                    }
                 }
             }
             .chaplist__mobile__row__item__inf{
@@ -2104,10 +2085,9 @@ body{
         .article__img{
             width: 30%;
             overflow: hidden;
-            border: 1px solid #707070;
             img{
                 width: 100%;
-                height: 100%;
+                border: 1px solid #707070;
             }
         }
         .article__inf{

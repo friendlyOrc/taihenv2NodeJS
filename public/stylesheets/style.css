@@ -702,7 +702,7 @@ body {
   .carousel__mobile .carousel__mobile__item {
     position: relative; }
     .carousel__mobile .carousel__mobile__item .carousel__mobile__item__img {
-      height: 40vh;
+      height: 45vh;
       position: relative;
       width: 100%; }
       .carousel__mobile .carousel__mobile__item .carousel__mobile__item__img img {
@@ -809,9 +809,6 @@ body {
           vertical-align: middle; }
       .topview__mobile .topview__slider .topview__slider__item:hover {
         text-decoration: none; }
-        .topview__mobile .topview__slider .topview__slider__item:hover .topview__slider__item__img img {
-          transform: scale(1.2, 1.2);
-          transition: 0.5s ease-in-out; }
       .topview__mobile .topview__slider .topview__slider__item .topview__slider__item__inf {
         margin-top: 10px;
         height: 30%; }
@@ -858,9 +855,6 @@ body {
           width: 100%;
           position: absolute;
           top: -20%; }
-        .newar__mobile .newar__mobile__slider .newar__mobile__slider__item .newar__mobile__slider__item__img:hover img {
-          transform: scale(1.2, 1.2);
-          transition: 0.5s ease-in-out; }
         .newar__mobile .newar__mobile__slider .newar__mobile__slider__item .newar__mobile__slider__item__img .newar__mobile__slider__item__img__chap {
           display: block;
           background-color: #0D0A12;
@@ -1004,9 +998,6 @@ body {
           height: 100%; }
       .arlist__mobile .arlist__mobile__row .arlist__mobile__row__item:hover {
         text-decoration: none; }
-        .arlist__mobile .arlist__mobile__row .arlist__mobile__row__item:hover .arlist__mobile__row__item__img img {
-          transform: scale(1.2, 1.2);
-          transition: 0.5s ease-in-out; }
       .arlist__mobile .arlist__mobile__row .arlist__mobile__row__item .arlist__mobile__row__item__inf {
         margin-top: 10px; }
         .arlist__mobile .arlist__mobile__row .arlist__mobile__row__item .arlist__mobile__row__item__inf .arlist__mobile__row__item__inf__title {
@@ -1207,9 +1198,6 @@ body {
         top: -50%; }
     .chaplist__mobile .chaplist__mobile__row .chaplist__mobile__row__item:hover {
       text-decoration: none; }
-      .chaplist__mobile .chaplist__mobile__row .chaplist__mobile__row__item:hover .chaplist__mobile__row__item__img img {
-        transform: scale(1.2, 1.2);
-        transition: 0.5s ease-in-out; }
     .chaplist__mobile .chaplist__mobile__row .chaplist__mobile__row__item .chaplist__mobile__row__item__inf {
       margin-top: 20px; }
       .chaplist__mobile .chaplist__mobile__row .chaplist__mobile__row__item .chaplist__mobile__row__item__inf .chaplist__mobile__row__item__inf__title {
@@ -1527,11 +1515,10 @@ body {
     padding-bottom: 200px; }
     .article .article__img {
       width: 30%;
-      overflow: hidden;
-      border: 1px solid #707070; }
+      overflow: hidden; }
       .article .article__img img {
         width: 100%;
-        height: 100%; }
+        border: 1px solid #707070; }
     .article .article__inf {
       width: 60%; }
       .article .article__inf p {
