@@ -711,6 +711,7 @@ body {
   .carousel__mobile .carousel__mobile__item__inf {
     margin-top: 5px;
     padding-left: 30px;
+    padding-right: 30px;
     padding-bottom: 60px;
     position: relative; }
     .carousel__mobile .carousel__mobile__item__inf a {
@@ -727,7 +728,7 @@ body {
       font-size: 26px;
       font-family: 'Montserrat-Bold';
       margin-top: 0;
-      margin-bottom: 0; }
+      margin-bottom: 5px; }
       .carousel__mobile .carousel__mobile__item__inf .carousel__mobile__item__inf__title:hover {
         color: #707070; }
     .carousel__mobile .carousel__mobile__item__inf .carousel__mobile__item__inf__btn {
@@ -801,7 +802,7 @@ body {
       .topview__mobile .topview__slider .topview__slider__item .topview__slider__item__img {
         overflow: hidden;
         padding: 0 !important;
-        height: 120px; }
+        height: 100px; }
         .topview__mobile .topview__slider .topview__slider__item .topview__slider__item__img img {
           margin: 0;
           width: 100%;

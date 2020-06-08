@@ -942,6 +942,7 @@ body{
     .carousel__mobile__item__inf{
         margin-top: 5px;
         padding-left: 30px;
+        padding-right: 30px;
         padding-bottom: 60px;
         position: relative;
         a{
@@ -961,7 +962,7 @@ body{
             font-size: 26px;
             font-family: 'Montserrat-Bold';
             margin-top: 0;
-            margin-bottom: 0;
+            margin-bottom: 5px;
 
             &:hover{
                 color: #707070;
@@ -1064,7 +1065,7 @@ body{
             .topview__slider__item__img{
                 overflow: hidden;
                 padding: 0 !important;
-                height: 120px;
+                height: 100px;
                 img{
                     margin: 0;
                     width: 100%;

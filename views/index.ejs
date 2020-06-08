@@ -325,8 +325,8 @@
                         
                         <div class="topview__slider__item__inf">
                             <h3 class="topview__slider__item__inf__title">
-                              <% if(sess.top_articles[i].ar_name.length > 12){%>
-                                <%= sess.top_articles[i].ar_name.substring(0, 12)%>...
+                              <% if(sess.top_articles[i].ar_name.length > 10){%>
+                                <%= sess.top_articles[i].ar_name.substring(0, 10)%>...
                               <%}else{%>
                                 <%= sess.top_articles[i].ar_name%>      
                               <%}%>     
@@ -361,8 +361,8 @@
                                         <div class="newar__mobile__slider__item__inf">
                                             <a href="/article/<%= sess.articles[i].ar_ID%>" title="<%= sess.articles[i].ar_name%>">
                                                 <h4 class="newar__mobile__slider__item__inf__title" style="white-space: 2;">
-                                                  <% if(sess.articles[i].ar_name.length > 22){%>
-                                                    <%= sess.articles[i].ar_name.substring(0, 22)%>...
+                                                  <% if(sess.articles[i].ar_name.length > 19){%>
+                                                    <%= sess.articles[i].ar_name.substring(0, 19)%>...
                                                   <%}else{%>
                                                     <%= sess.articles[i].ar_name%>      
                                                   <%}%> 
