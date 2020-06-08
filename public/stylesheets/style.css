@@ -702,7 +702,7 @@ body {
   .carousel__mobile .carousel__mobile__item {
     position: relative; }
     .carousel__mobile .carousel__mobile__item .carousel__mobile__item__img {
-      height: 45vh;
+      height: 40vh;
       position: relative;
       width: 100%; }
       .carousel__mobile .carousel__mobile__item .carousel__mobile__item__img img {
